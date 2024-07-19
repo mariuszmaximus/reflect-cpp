@@ -11,6 +11,26 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
+      - uses: msys2/setup-msys2@v2
+        with:
+          msystem: clang64
+          release: true
+          update: true
+          install: >-
+            git
+            mc
+            p7zip
+            zip
+            unrar
+            bash
+          pacboy: >-
+            git-lfs:p
+            cmake:p
+            clang:p
+            ninja:p
+            lldb:p
+            gdb:p
+          
       - uses: ilammy/msvc-dev-cmd@v1
       - uses: lukka/run-vcpkg@v11
       - name: Compile 
